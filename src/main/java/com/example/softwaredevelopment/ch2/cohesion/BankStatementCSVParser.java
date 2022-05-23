@@ -1,4 +1,6 @@
-package com.example.softwaredevelopment.ch2;
+package com.example.softwaredevelopment.ch2.cohesion;
+
+import com.example.softwaredevelopment.ch2.BankDTO;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,11 +13,12 @@ import java.util.List;
  * csv 파싱 부분만 별도로 맨 클래스 파일.
  *
  * CSV to DTO
+ *
+ * 요 파일은 응집도가 높다 : CSV 데이터를 파싱하는 작업과 관련된 두 메서드를 한 그룹으로 만들었기 때문임.
  */
 public class BankStatementCSVParser {
 
-    private static final DateTimeFormatter DATE_PATTERN
-        = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public List<BankDTO> parseLinesFromCSV(final List<String> lines) {
         final List<BankDTO> bankDTOList = new ArrayList<>();
@@ -35,6 +38,10 @@ public class BankStatementCSVParser {
             .amount(Double.parseDouble(columns[1]))
             .description(columns[2])
             .build();
+    }
+
+    public BankDTO parseFromJson(final String line) {
+         throw new UnsupportedOperationException();
     }
 
 }
