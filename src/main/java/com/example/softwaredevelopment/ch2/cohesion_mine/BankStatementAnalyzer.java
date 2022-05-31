@@ -1,7 +1,7 @@
 //package com.example.softwaredevelopment.ch2.cohesion_mine;
 //
 //import com.example.softwaredevelopment.ch2.BankDTO;
-//import com.example.softwaredevelopment.ch2.BankStatementProcessor;
+//import com.example.softwaredevelopment.ch2.BeforeBankStatementProcessor;
 //import com.example.softwaredevelopment.ch2.cohesion.BankStatementCSVParser;
 //
 //import java.io.IOException;
@@ -19,7 +19,7 @@
 // * BankStatementProcessor1을 사용.
 // *
 // */
-//public class BankStatementAnalyzer {
+//public class BeforeBankStatementAnalyzer {
 //
 //    private static final String RESOURCES = "src/main/resources/";
 //
@@ -27,8 +27,8 @@
 //
 //        // 아래 BankStatementCSVParser 로 파싱로직 하는 부분을 위임하였고, BankStatementCSVParser 로 캡슐화된 기능을 재사용해 구현한다.
 //        final BankStatementCSVParser bankStatementCSVParser = new BankStatementCSVParser();
-//        // 아래 BankStatementProcessor 로 계산하는 하는 부분을 위임하였고, BankStatementProcessor 로 캡슐화된 기능을 재사용해 구현한다.
-//        final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor();
+//        // 아래 BeforeBankStatementProcessor 로 계산하는 하는 부분을 위임하였고, BeforeBankStatementProcessor 로 캡슐화된 기능을 재사용해 구현한다.
+//        final BeforeBankStatementProcessor bankStatementProcessor = new BeforeBankStatementProcessor();
 //
 //        final String fileName = args[0];
 //        final Path path = Paths.get(RESOURCES + fileName);
@@ -37,14 +37,14 @@
 //        final List<BankDTO> bankDTOList = bankStatementCSVParser.parseLinesFromCSV(lines);
 //
 //        // task1. 수입과 지출의 총 합계 구하기
-//        // BankStatementProcessor 응집도 전 : System.out.println("총 사용금액 : " + calculateTotalAmount(bankDTOList));
+//        // BeforeBankStatementProcessor 응집도 전 : System.out.println("총 사용금액 : " + calculateTotalAmount(bankDTOList));
 //        System.out.println("총 사용금액 : " + bankStatementProcessor.calculateTotalAmount(bankDTOList));
 //        // task2. 달 별로 입출금 내역
-//        // BankStatementProcessor 응집도 전 : System.out.println("1월 총 사용금액 : " + bankStatementProcessor.selectInMonth(bankDTOList, Month.JANUARY));
+//        // BeforeBankStatementProcessor 응집도 전 : System.out.println("1월 총 사용금액 : " + bankStatementProcessor.selectInMonth(bankDTOList, Month.JANUARY));
 //        System.out.println("1월 총 사용금액 : " + bankStatementProcessor.selectInMonth(bankDTOList, Month.JANUARY));
 //    }
 //
-//    // BankStatementProcessor 응집도 전 -start-
+//    // BeforeBankStatementProcessor 응집도 전 -start-
 ////    /**
 ////     * 내역 총 합계 구하기
 ////     * 계산하는 부분이 정적메서드로 선언 되어 있음.
@@ -82,5 +82,5 @@
 ////
 ////        return bankListInMonth;
 ////    }
-////    BankStatementProcessor 응집도 전 -end-
+////    BeforeBankStatementProcessor 응집도 전 -end-
 //}

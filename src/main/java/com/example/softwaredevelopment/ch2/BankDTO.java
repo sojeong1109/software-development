@@ -11,6 +11,9 @@ import java.util.Objects;
 @Builder
 @Getter
 @Setter
+/**
+ * bankTransaction
+ */
 public class BankDTO {
 
     private LocalDate date;

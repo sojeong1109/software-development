@@ -1,21 +1,17 @@
-package com.example.softwaredevelopment.ch2.cohesion;
+package com.example.softwaredevelopment.ch3.afterIn;
 
 import com.example.softwaredevelopment.ch2.BankDTO;
 
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * BeforeBankStatementAnalyzer 에서 계산하는 부분만 빼서 만들어 응집도를 높임.
- *
- * ver2. 생성자에 list 담음.
- */
-public class BankStatementProcessor {
+public class AfterInBankStatementProcessor {
 
     private final List<BankDTO> bankDTOList;
 
-    public BankStatementProcessor(final List<BankDTO> bankDTOList) {
+    public AfterInBankStatementProcessor(final List<BankDTO> bankDTOList) {
         this.bankDTOList = bankDTOList;
     }
 
@@ -63,5 +59,15 @@ public class BankStatementProcessor {
         }
 
         return total;
+    }
+
+    public List<BankDTO> findTransactions(final BankDtoFilter bankDtoFilter) {
+        final  List<BankDTO> result = new ArrayList<>();
+        for (BankDTO bankDTO : bankDTOList) {
+            if (bankDtoFilter.test(bankDTO)) {
+                result.add(bankDTO);
+            }
+        }
+        return result;
     }
 }

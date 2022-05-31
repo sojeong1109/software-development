@@ -14,7 +14,7 @@ import java.util.List;
  *
  * BankStatementParser 인터페이스로 만들어 사용.
  *
- * BankStatementAnalyzer 와 BankStatementCSVParser 의 결합 제거거
+ * BeforeBankStatementAnalyzer 와 BankStatementCSVParser 의 결합 제거거
  *
  */
 public class BankStatementAnalyzer {

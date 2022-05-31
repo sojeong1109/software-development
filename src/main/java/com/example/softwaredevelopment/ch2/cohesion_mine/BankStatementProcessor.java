@@ -7,11 +7,11 @@
 //import java.util.stream.Collectors;
 //
 ///**
-// * BankStatementAnalyzer 에서 계산하는 부분만 빼서 만들어 응집도를 높임.
+// * BeforeBankStatementAnalyzer 에서 계산하는 부분만 빼서 만들어 응집도를 높임.
 // *
 // * ver1. 생성자 매개변수 없이 다 메소드로 뺌.
 // */
-//public class BankStatementProcessor {
+//public class BeforeBankStatementProcessor {
 //
 //    /**
 //     * 내역 총 합계 구하기
